@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="La herramienta más rápida y confiable para buscar personas y empresas en Chile por RUT o nombre. Verificación de identidad simplificada con Rutificador.">
+    <meta name="keywords" content="rutificador, buscar rut, consulta rut, verificar rut, rutificador chile, búsqueda de identidad, RUT Chile">
+    <meta name="author" content="Rutificador Chile">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Rutificador Chile: Consulta RUT y Nombre al Instante">
+    <meta property="og:description" content="Busca información de personas y empresas en Chile usando el RUT. La forma más rápida y segura de verificar identidades.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rutificador.github.io/">
+    <meta property="og:image" content="https://rutificador.github.io/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Rutificador Chile: Consulta RUT y Nombre al Instante">
+    <meta name="twitter:description" content="Busca información de personas y empresas en Chile usando el RUT. La forma más rápida y segura de verificar identidades.">
+    <meta name="twitter:image" content="https://rutificador.github.io/logo.png">
+    <link rel="canonical" href="https://rutificador.github.io/">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <title>Rutificador Chile Oficial: Consulta RUT y Nombre al Instante</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-blue: #0039A6;
+            --color-red: #D52B1E;
+            --color-white: #FFFFFF;
+            --color-light-gray: #F5F5F5;
+            --color-dark-gray: #333333;
+            --color-text: #2C3E50;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: var(--color-white);
+        }
+
+        /* Header and Navigation */
+        header {
+            background: linear-gradient(135deg, var(--color-blue) 0%, #002d7f 100%);
+            color: var(--color-white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: var(--color-white);
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--color-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border-bottom: 2px solid transparent;
+        }
+
+        nav a:hover {
+            border-bottom-color: var(--color-red);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--color-blue) 0%, #002d7f 50%, var(--color-red) 100%);
+            color: var(--color-white);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--color-red);
+            color: var(--color-white);
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: 2px solid var(--color-red);
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(213, 43, 30, 0.3);
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--color-red);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(213, 43, 30, 0.4);
+        }
+
+        .cta-button-secondary {
+            background-color: transparent;
+            color: var(--color-white);
+            border: 2px solid var(--color-white);
+            margin-left: 1rem;
+        }
+
+        .cta-button-secondary:hover {
+            background-color: var(--color-white);
+            color: var(--color-blue);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 20px;
+            background-color: var(--color-light-gray);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--color-dark-gray);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-blue), var(--color-red));
+            border-radius: 2px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--color-white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, var(--color-blue), var(--color-red));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--color-white);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--color-blue);
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 20px;
+            background-color: var(--color-white);
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--color-blue);
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, var(--color-blue), var(--color-red));
+            border-radius: 10px;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+            color: var(--color-white);
+            font-size: 4rem;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, var(--color-light-gray) 100%);
+        }
+
+        .benefits-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--color-white);
+            border-left: 4px solid var(--color-red);
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .benefit-icon {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background-color: var(--color-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            font-weight: bold;
+        }
+
+        .benefit-content h3 {
+            color: var(--color-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-content p {
+            color: #666;
+        }
+
+        /* Resources/Backlinks Section */
+        .resources {
+            padding: 80px 20px;
+            background-color: var(--color-white);
+        }
+
+        .resources-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .resources-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .resource-card {
+            background: linear-gradient(135deg, var(--color-light-gray) 0%, #e8e8e8 100%);
+            padding: 2rem;
+            border-radius: 10px;
+            border-top: 4px solid var(--color-blue);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--color-red);
+        }
+
+        .resource-card h3 {
+            color: var(--color-blue);
+            margin-bottom: 1rem;
+        }
+
+        .resource-card a {
+            display: inline-block;
+            color: var(--color-red);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: var(--transition);
+        }
+
+        .resource-card a:hover {
+            color: var(--color-blue);
+            text-decoration: underline;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 20px;
+            background-color: var(--color-light-gray);
+        }
+
+        .faq-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--color-white);
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--color-blue) 0%, #002d7f 100%);
+            color: var(--color-white);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: linear-gradient(135deg, #002d7f 0%, var(--color-blue) 100%);
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 1.5rem;
+            color: #555;
+            display: none;
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--color-blue) 0%, #002d7f 100%);
+            color: var(--color-white);
+            padding: 3rem 20px 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--color-red);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: var(--color-white);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--color-red);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 2rem;
+            margin-top: 2rem;
+        }
+
+        .footer-bottom p {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .cta-button-secondary {
+                display: block;
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                text-align: center;
+            }
+
+            .footer-section a {
+                display: inline;
+                margin: 0 0.5rem;
+            }
+        }
+
+        /* Accessibility */
+        a:focus, button:focus {
+            outline: 2px solid var(--color-red);
+            outline-offset: 2px;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo-container">
+                    <img src="logo.png" alt="Rutificador Logo" class="logo-img">
+                    <span>Rutificador</span>
+                </a>
+                <ul>
+                    <li><a href="#features">Características</a></li>
+                    <li><a href="#about">Acerca de</a></li>
+                    <li><a href="#faq">Preguntas</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Rutificador Chile</h1>
+            <p>La herramienta más rápida y confiable para buscar personas y empresas en Chile por RUT o nombre. Verificación de identidad simplificada.</p>
+            <a href="#features" class="cta-button">Comenzar Ahora</a>
+            <a href="#about" class="cta-button cta-button-secondary">Saber Más</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">¿Por Qué Usar Rutificador?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Búsqueda Rápida</h3>
+                    <p>Obtén resultados instantáneos al buscar por RUT o nombre. Sin esperas, sin complicaciones.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Seguro y Confiable</h3>
+                    <p>Tus datos están protegidos con los más altos estándares de seguridad y privacidad.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Información Actualizada</h3>
+                    <p>Accede a información actualizada y verificada de personas y empresas en Chile.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <h3>Para Negocios</h3>
+                    <p>Verifica identidades de clientes y socios comerciales de manera rápida y eficiente.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Acceso en Línea</h3>
+                    <p>Disponible 24/7 desde cualquier dispositivo con conexión a internet.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✅</div>
+                    <h3>Fácil de Usar</h3>
+                    <p>Interfaz intuitiva que cualquiera puede usar sin necesidad de capacitación especial.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>¿Qué es Rutificador?</h2>
+                    <p>Rutificador es una plataforma innovadora diseñada para facilitar la búsqueda y verificación de identidades en Chile. Utilizando el RUT (Rol Único Tributario), que es el número de identificación único de cada persona y empresa en el país, Rutificador permite acceder a información pública de manera rápida y segura.</p>
+                    <p>En Chile, el RUT es fundamental para todas las transacciones comerciales, trámites legales y verificaciones de identidad. Rutificador simplifica este proceso, permitiendo a empresas, profesionales y ciudadanos verificar información de manera instantánea y confiable.</p>
+                    <p>Ya sea que necesites verificar la identidad de un cliente, validar datos de un socio comercial o simplemente buscar información pública de una persona, Rutificador es tu solución integral.</p>
+                </div>
+                <div class="about-image">
+                    🇨🇱
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">Beneficios Principales</h2>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <div class="benefit-icon">1</div>
+                    <div class="benefit-content">
+                        <h3>Verificación Rápida de Identidades</h3>
+                        <p>Verifica la identidad de clientes, empleados y socios en segundos. Reduce el riesgo de fraude y transacciones sospechosas.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">2</div>
+                    <div class="benefit-content">
+                        <h3>Cumplimiento Normativo</h3>
+                        <p>Cumple con los requisitos de Know Your Customer (KYC) y otros estándares de verificación de identidad requeridos por ley.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">3</div>
+                    <div class="benefit-content">
+                        <h3>Información Pública Confiable</h3>
+                        <p>Accede a información pública verificada y actualizada de registros oficiales chilenos.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">4</div>
+                    <div class="benefit-content">
+                        <h3>Ahorro de Tiempo y Recursos</h3>
+                        <p>Automatiza procesos de verificación que normalmente requerirían horas de investigación manual.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">5</div>
+                    <div class="benefit-content">
+                        <h3>Disponibilidad 24/7</h3>
+                        <p>Accede a la plataforma en cualquier momento, desde cualquier lugar, sin limitaciones de horario.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">6</div>
+                    <div class="benefit-content">
+                        <h3>Privacidad y Seguridad</h3>
+                        <p>Tus datos están protegidos con encriptación de nivel empresarial y cumplimiento de regulaciones de privacidad.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section (for backlinks) -->
+    <section class="resources" id="resources">
+        <div class="container">
+            <h2 class="section-title">Recursos Relacionados</h2>
+            <div class="resources-content">
+                <div class="resources-intro">
+                    <p>Rutificador es una herramienta esencial para cualquiera que necesite verificar identidades o buscar información de personas y empresas en Chile. Nuestro compromiso es proporcionar acceso rápido, seguro y confiable a información pública, facilitando transacciones comerciales y cumplimiento normativo en el país.</p>
+                </div>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h3>Sobre RUT en Chile</h3>
+                        <p>Aprende más sobre el Rol Único Tributario y su importancia en el sistema chileno.</p>
+                        <a href="#" rel="nofollow">Leer más →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h3>Verificación de Identidad</h3>
+                        <p>Conoce los mejores prácticas para verificar identidades de manera segura y legal.</p>
+                        <a href="#" rel="nofollow">Explorar →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h3>Seguridad Online</h3>
+                        <p>Consejos y recomendaciones para proteger tu información personal en línea.</p>
+                        <a href="#" rel="nofollow">Descubrir →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <div class="faq-content">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>¿Es legal usar Rutificador para buscar información de personas?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, Rutificador accede a información pública registrada en bases de datos oficiales chilenas. Sin embargo, debes usar esta información de manera legal y ética, respetando la privacidad y las regulaciones de protección de datos.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>¿Qué información puedo encontrar con un RUT?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Con un RUT puedes encontrar información pública como nombre completo, estado civil, profesión, dirección registrada y otra información disponible en registros públicos chilenos. La información exacta disponible depende de los registros públicos actualizados.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>¿Cómo funciona Rutificador?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Rutificador accede a bases de datos públicas y registros oficiales chilenos. Simplemente ingresa un RUT o nombre, y la plataforma busca y compila la información disponible de manera rápida y segura.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>¿Es seguro proporcionar mi información a Rutificador?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, Rutificador utiliza encriptación de nivel empresarial y cumple con todas las regulaciones de privacidad y protección de datos aplicables en Chile. Tu información está protegida con los más altos estándares de seguridad.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>¿Puedo usar Rutificador para propósitos comerciales?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, muchas empresas utilizan Rutificador para verificar identidades de clientes, validar datos de proveedores y cumplir con requisitos de Know Your Customer (KYC). Consulta nuestros planes empresariales para más información.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>¿Cómo puedo contactar al equipo de soporte?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Puedes contactarnos a través de nuestro formulario de contacto, correo electrónico o redes sociales. Nuestro equipo de soporte está disponible para ayudarte con cualquier pregunta o problema.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="padding: 80px 20px; background-color: #f5f5f5;">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.1rem; color: #555; margin-bottom: 2rem;">¿Tienes preguntas? Nos encantaría saber de ti. Contáctanos para obtener más información sobre cómo Rutificador puede ayudarte.</p>
+                <form style="display: flex; flex-direction: column; gap: 1rem;">
+                    <input type="text" placeholder="Tu nombre" required style="padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;">
+                    <input type="email" placeholder="Tu correo electrónico" required style="padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;">
+                    <textarea placeholder="Tu mensaje" rows="5" required style="padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem; font-family: inherit;"></textarea>
+                    <button type="submit" class="cta-button" style="border: none;">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Rutificador</h4>
+                    <p>La herramienta más confiable para verificar identidades en Chile usando el RUT.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#features">Características</a></li>
+                        <li><a href="#about">Acerca de</a></li>
+                        <li><a href="#faq">Preguntas Frecuentes</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Términos de Servicio</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Síguenos</h4>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Rutificador Chile. Todos los derechos reservados.</p>
+                <p>Esta plataforma accede a información pública. Úsala de manera legal y ética.</p>
+                <p>Rutificador no es responsable por el uso indebido de la información obtenida a través de esta plataforma.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FAQ Toggle Script -->
+    <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const faqItem = this.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
